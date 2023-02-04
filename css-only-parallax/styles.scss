@@ -1,0 +1,145 @@
+@use "sass:string";
+@use "sass:map";
+
+$max_cols: 25;
+$max_rows: 5;
+
+$layer_1_config: (
+    "max_x_offset": 5,
+    "max_y_offset": 8,
+    "min_x_offset": -5,
+    "min_y_offset": -1,
+    "initial_x_offset": -5,
+    "initial_y_offset": -15
+);
+$layer_2_config: (
+    "max_x_offset": 0,
+    "max_y_offset": 4,
+    "min_x_offset": -4,
+    "min_y_offset": -1,
+    "initial_x_offset": -5,
+    "initial_y_offset": -10
+);
+
+
+@mixin translate($r, $c, $map) {
+    $translate-steps-x: ( map.get($map, "max_x_offset") - map.get($map, "min_x_offset") ) / $max_cols;
+    $translate-steps-y: ( map.get($map, "max_y_offset") - map.get($map, "min_y_offset") ) / $max_rows;
+
+    $x: ( $max_cols - $c - ($max_cols / 2) ) * $translate_steps_x + map.get($map, "initial_x_offset");
+    $y: ( $max_rows - $r - ($max_rows / 2) ) * $translate_steps_y + map.get($map, "initial_y_offset");
+    transform: string.unquote('translate(' + $x+ '%, ' + $y + '%)');
+}
+
+
+
+
+
+html,
+body {
+    margin:0;
+    padding:0;
+}
+body {
+    background-color: rgb(50,50,50);
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+.container {
+    position:relative;
+    margin: 10rem 0;
+    min-height: 25rem;
+    
+    overflow: hidden;
+
+    $rows: 0;
+    $cols: 0;
+    @for $i from 1 through $max_cols {
+        $cols: $cols + 1fr + ' ';
+    }
+    @for $i from 1 through $max_rows {
+        $rows: $rows + 1fr + ' ';
+    }
+    display: grid;
+    grid-template-columns: #{$cols};
+    grid-template-columns: repeat($max_cols, 1fr);
+    grid-template-rows: #{$rows};
+    grid-template-rows: repeat($max_rows, 1fr);
+
+    & > div:not(.layer) {
+        outline: 1px solid red;
+    }
+
+    & > .layer {
+        position: absolute;
+        inset:0;
+        pointer-events: none;
+        transition: transform 2s ease-out;
+
+        > img {
+            width: 120%;
+            height:auto;
+        }
+    }
+    & > .layer-0 {
+        background: linear-gradient(135deg, rgba(30,10,40, .8),rgba(50,50,50, .6) );
+
+    }
+    &> .layer-1 {
+        transform: string.unquote('translate(' + map.get($layer_1_config,"initial_x_offset") + '%, ' + map.get($layer_1_config, "initial_y_offset") + '%)');
+    }
+    &> .layer-2 {
+        transform: string.unquote('translate(' + map.get($layer_2_config,"initial_x_offset") + '%, ' + map.get($layer_2_config, "initial_y_offset") + '%)');
+    }
+    &> .foreground {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        pointer-events: none;
+
+        h1 {
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 0 1px 0 #efefef,
+                         0 2px 0 #e0e0e0,
+                         0 3px 0 #c0c0c0,
+                         0.5rem 0.7rem 1.2rem rgba(0,0,0,.5);
+        }
+
+    }
+    @media screen and (max-width: 55rem) {
+        .foreground h1 {
+            font-size: 2rem;
+        }
+        & {
+            min-height: 15rem;
+        }
+    }
+}    
+
+@keyframes move-clouds {
+    0% {
+        transform: translate(-10% ,20%);
+    }
+    50% {
+        transform: translate(0%, 20%);
+    }
+    100% {
+        transform: translate(-10%, 20%);
+    }
+}
+
+@for $r from 1 through $max_rows {
+    @for $c from 1 through $max_cols {
+        
+        .container > div:nth-child(#{$r*$max_cols -$max_cols + $c}):hover ~ .layer-1  {
+            @include translate($r, $c, $layer_1_config);
+        }
+        .container > div:nth-child(#{$r*$max_cols -$max_cols + $c}):hover ~ .layer-2  {  
+            @include translate($r, $c, $layer_2_config);
+        }
+    }
+}
