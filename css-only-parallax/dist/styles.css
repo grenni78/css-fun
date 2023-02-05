@@ -1,0 +1,851 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #323232;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.container {
+  /* middle layer */
+  /* deepest layer */
+  position: relative;
+  margin: 10rem 0;
+  /*    min-height: 25rem; */
+  aspect-ratio: var(--width)/var(--height);
+  overflow: hidden;
+  box-shadow: 0 1rem 6rem 0 rgba(0, 0, 0, 0.6);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-columns: repeat(25, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-rows: repeat(5, 1fr);
+}
+.container > div:not(.layer) {
+  outline: 1px solid red;
+}
+.container > .layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: transform 2s ease-out;
+}
+.container > .layer > img {
+  width: var(--zoom)%;
+  height: auto;
+}
+.container > .layer-0 {
+  background-image: linear-gradient(100deg, rgba(30, 10, 40, 0.8), rgba(50, 50, 50, 0.6));
+  background-size: var(--zoom)%;
+}
+.container > .layer-1 {
+  opacity: 0.8;
+  transform: translate(-10%, -50%);
+}
+.container > .layer-2 {
+  transform: translate(-20%, -20%);
+}
+.container > .foreground {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  pointer-events: none;
+}
+.container > .foreground h1 {
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 0 1px 0 #efefef, 0 2px 0 #e0e0e0, 0 3px 0 #c0c0c0, 0.5rem 0.7rem 1.2rem rgba(0, 0, 0, 0.5);
+}
+@media screen and (max-width: 55rem) {
+  .container .foreground h1 {
+    font-size: 2rem;
+  }
+  .container {
+    min-height: 15rem;
+  }
+}
+.container > div:nth-child(1):hover ~ .layer-1 {
+  transform: translate(-0.8%, -46.1%);
+}
+.container > div:nth-child(1):hover ~ .layer-2 {
+  transform: translate(-18.16%, -18.8%);
+}
+.container > div:nth-child(2):hover ~ .layer-1 {
+  transform: translate(-1.6%, -46.1%);
+}
+.container > div:nth-child(2):hover ~ .layer-2 {
+  transform: translate(-18.32%, -18.8%);
+}
+.container > div:nth-child(3):hover ~ .layer-1 {
+  transform: translate(-2.4%, -46.1%);
+}
+.container > div:nth-child(3):hover ~ .layer-2 {
+  transform: translate(-18.48%, -18.8%);
+}
+.container > div:nth-child(4):hover ~ .layer-1 {
+  transform: translate(-3.2%, -46.1%);
+}
+.container > div:nth-child(4):hover ~ .layer-2 {
+  transform: translate(-18.64%, -18.8%);
+}
+.container > div:nth-child(5):hover ~ .layer-1 {
+  transform: translate(-4%, -46.1%);
+}
+.container > div:nth-child(5):hover ~ .layer-2 {
+  transform: translate(-18.8%, -18.8%);
+}
+.container > div:nth-child(6):hover ~ .layer-1 {
+  transform: translate(-4.8%, -46.1%);
+}
+.container > div:nth-child(6):hover ~ .layer-2 {
+  transform: translate(-18.96%, -18.8%);
+}
+.container > div:nth-child(7):hover ~ .layer-1 {
+  transform: translate(-5.6%, -46.1%);
+}
+.container > div:nth-child(7):hover ~ .layer-2 {
+  transform: translate(-19.12%, -18.8%);
+}
+.container > div:nth-child(8):hover ~ .layer-1 {
+  transform: translate(-6.4%, -46.1%);
+}
+.container > div:nth-child(8):hover ~ .layer-2 {
+  transform: translate(-19.28%, -18.8%);
+}
+.container > div:nth-child(9):hover ~ .layer-1 {
+  transform: translate(-7.2%, -46.1%);
+}
+.container > div:nth-child(9):hover ~ .layer-2 {
+  transform: translate(-19.44%, -18.8%);
+}
+.container > div:nth-child(10):hover ~ .layer-1 {
+  transform: translate(-8%, -46.1%);
+}
+.container > div:nth-child(10):hover ~ .layer-2 {
+  transform: translate(-19.6%, -18.8%);
+}
+.container > div:nth-child(11):hover ~ .layer-1 {
+  transform: translate(-8.8%, -46.1%);
+}
+.container > div:nth-child(11):hover ~ .layer-2 {
+  transform: translate(-19.76%, -18.8%);
+}
+.container > div:nth-child(12):hover ~ .layer-1 {
+  transform: translate(-9.6%, -46.1%);
+}
+.container > div:nth-child(12):hover ~ .layer-2 {
+  transform: translate(-19.92%, -18.8%);
+}
+.container > div:nth-child(13):hover ~ .layer-1 {
+  transform: translate(-10.4%, -46.1%);
+}
+.container > div:nth-child(13):hover ~ .layer-2 {
+  transform: translate(-20.08%, -18.8%);
+}
+.container > div:nth-child(14):hover ~ .layer-1 {
+  transform: translate(-11.2%, -46.1%);
+}
+.container > div:nth-child(14):hover ~ .layer-2 {
+  transform: translate(-20.24%, -18.8%);
+}
+.container > div:nth-child(15):hover ~ .layer-1 {
+  transform: translate(-12%, -46.1%);
+}
+.container > div:nth-child(15):hover ~ .layer-2 {
+  transform: translate(-20.4%, -18.8%);
+}
+.container > div:nth-child(16):hover ~ .layer-1 {
+  transform: translate(-12.8%, -46.1%);
+}
+.container > div:nth-child(16):hover ~ .layer-2 {
+  transform: translate(-20.56%, -18.8%);
+}
+.container > div:nth-child(17):hover ~ .layer-1 {
+  transform: translate(-13.6%, -46.1%);
+}
+.container > div:nth-child(17):hover ~ .layer-2 {
+  transform: translate(-20.72%, -18.8%);
+}
+.container > div:nth-child(18):hover ~ .layer-1 {
+  transform: translate(-14.4%, -46.1%);
+}
+.container > div:nth-child(18):hover ~ .layer-2 {
+  transform: translate(-20.88%, -18.8%);
+}
+.container > div:nth-child(19):hover ~ .layer-1 {
+  transform: translate(-15.2%, -46.1%);
+}
+.container > div:nth-child(19):hover ~ .layer-2 {
+  transform: translate(-21.04%, -18.8%);
+}
+.container > div:nth-child(20):hover ~ .layer-1 {
+  transform: translate(-16%, -46.1%);
+}
+.container > div:nth-child(20):hover ~ .layer-2 {
+  transform: translate(-21.2%, -18.8%);
+}
+.container > div:nth-child(21):hover ~ .layer-1 {
+  transform: translate(-16.8%, -46.1%);
+}
+.container > div:nth-child(21):hover ~ .layer-2 {
+  transform: translate(-21.36%, -18.8%);
+}
+.container > div:nth-child(22):hover ~ .layer-1 {
+  transform: translate(-17.6%, -46.1%);
+}
+.container > div:nth-child(22):hover ~ .layer-2 {
+  transform: translate(-21.52%, -18.8%);
+}
+.container > div:nth-child(23):hover ~ .layer-1 {
+  transform: translate(-18.4%, -46.1%);
+}
+.container > div:nth-child(23):hover ~ .layer-2 {
+  transform: translate(-21.68%, -18.8%);
+}
+.container > div:nth-child(24):hover ~ .layer-1 {
+  transform: translate(-19.2%, -46.1%);
+}
+.container > div:nth-child(24):hover ~ .layer-2 {
+  transform: translate(-21.84%, -18.8%);
+}
+.container > div:nth-child(25):hover ~ .layer-1 {
+  transform: translate(-20%, -46.1%);
+}
+.container > div:nth-child(25):hover ~ .layer-2 {
+  transform: translate(-22%, -18.8%);
+}
+.container > div:nth-child(26):hover ~ .layer-1 {
+  transform: translate(-0.8%, -48.7%);
+}
+.container > div:nth-child(26):hover ~ .layer-2 {
+  transform: translate(-18.16%, -19.6%);
+}
+.container > div:nth-child(27):hover ~ .layer-1 {
+  transform: translate(-1.6%, -48.7%);
+}
+.container > div:nth-child(27):hover ~ .layer-2 {
+  transform: translate(-18.32%, -19.6%);
+}
+.container > div:nth-child(28):hover ~ .layer-1 {
+  transform: translate(-2.4%, -48.7%);
+}
+.container > div:nth-child(28):hover ~ .layer-2 {
+  transform: translate(-18.48%, -19.6%);
+}
+.container > div:nth-child(29):hover ~ .layer-1 {
+  transform: translate(-3.2%, -48.7%);
+}
+.container > div:nth-child(29):hover ~ .layer-2 {
+  transform: translate(-18.64%, -19.6%);
+}
+.container > div:nth-child(30):hover ~ .layer-1 {
+  transform: translate(-4%, -48.7%);
+}
+.container > div:nth-child(30):hover ~ .layer-2 {
+  transform: translate(-18.8%, -19.6%);
+}
+.container > div:nth-child(31):hover ~ .layer-1 {
+  transform: translate(-4.8%, -48.7%);
+}
+.container > div:nth-child(31):hover ~ .layer-2 {
+  transform: translate(-18.96%, -19.6%);
+}
+.container > div:nth-child(32):hover ~ .layer-1 {
+  transform: translate(-5.6%, -48.7%);
+}
+.container > div:nth-child(32):hover ~ .layer-2 {
+  transform: translate(-19.12%, -19.6%);
+}
+.container > div:nth-child(33):hover ~ .layer-1 {
+  transform: translate(-6.4%, -48.7%);
+}
+.container > div:nth-child(33):hover ~ .layer-2 {
+  transform: translate(-19.28%, -19.6%);
+}
+.container > div:nth-child(34):hover ~ .layer-1 {
+  transform: translate(-7.2%, -48.7%);
+}
+.container > div:nth-child(34):hover ~ .layer-2 {
+  transform: translate(-19.44%, -19.6%);
+}
+.container > div:nth-child(35):hover ~ .layer-1 {
+  transform: translate(-8%, -48.7%);
+}
+.container > div:nth-child(35):hover ~ .layer-2 {
+  transform: translate(-19.6%, -19.6%);
+}
+.container > div:nth-child(36):hover ~ .layer-1 {
+  transform: translate(-8.8%, -48.7%);
+}
+.container > div:nth-child(36):hover ~ .layer-2 {
+  transform: translate(-19.76%, -19.6%);
+}
+.container > div:nth-child(37):hover ~ .layer-1 {
+  transform: translate(-9.6%, -48.7%);
+}
+.container > div:nth-child(37):hover ~ .layer-2 {
+  transform: translate(-19.92%, -19.6%);
+}
+.container > div:nth-child(38):hover ~ .layer-1 {
+  transform: translate(-10.4%, -48.7%);
+}
+.container > div:nth-child(38):hover ~ .layer-2 {
+  transform: translate(-20.08%, -19.6%);
+}
+.container > div:nth-child(39):hover ~ .layer-1 {
+  transform: translate(-11.2%, -48.7%);
+}
+.container > div:nth-child(39):hover ~ .layer-2 {
+  transform: translate(-20.24%, -19.6%);
+}
+.container > div:nth-child(40):hover ~ .layer-1 {
+  transform: translate(-12%, -48.7%);
+}
+.container > div:nth-child(40):hover ~ .layer-2 {
+  transform: translate(-20.4%, -19.6%);
+}
+.container > div:nth-child(41):hover ~ .layer-1 {
+  transform: translate(-12.8%, -48.7%);
+}
+.container > div:nth-child(41):hover ~ .layer-2 {
+  transform: translate(-20.56%, -19.6%);
+}
+.container > div:nth-child(42):hover ~ .layer-1 {
+  transform: translate(-13.6%, -48.7%);
+}
+.container > div:nth-child(42):hover ~ .layer-2 {
+  transform: translate(-20.72%, -19.6%);
+}
+.container > div:nth-child(43):hover ~ .layer-1 {
+  transform: translate(-14.4%, -48.7%);
+}
+.container > div:nth-child(43):hover ~ .layer-2 {
+  transform: translate(-20.88%, -19.6%);
+}
+.container > div:nth-child(44):hover ~ .layer-1 {
+  transform: translate(-15.2%, -48.7%);
+}
+.container > div:nth-child(44):hover ~ .layer-2 {
+  transform: translate(-21.04%, -19.6%);
+}
+.container > div:nth-child(45):hover ~ .layer-1 {
+  transform: translate(-16%, -48.7%);
+}
+.container > div:nth-child(45):hover ~ .layer-2 {
+  transform: translate(-21.2%, -19.6%);
+}
+.container > div:nth-child(46):hover ~ .layer-1 {
+  transform: translate(-16.8%, -48.7%);
+}
+.container > div:nth-child(46):hover ~ .layer-2 {
+  transform: translate(-21.36%, -19.6%);
+}
+.container > div:nth-child(47):hover ~ .layer-1 {
+  transform: translate(-17.6%, -48.7%);
+}
+.container > div:nth-child(47):hover ~ .layer-2 {
+  transform: translate(-21.52%, -19.6%);
+}
+.container > div:nth-child(48):hover ~ .layer-1 {
+  transform: translate(-18.4%, -48.7%);
+}
+.container > div:nth-child(48):hover ~ .layer-2 {
+  transform: translate(-21.68%, -19.6%);
+}
+.container > div:nth-child(49):hover ~ .layer-1 {
+  transform: translate(-19.2%, -48.7%);
+}
+.container > div:nth-child(49):hover ~ .layer-2 {
+  transform: translate(-21.84%, -19.6%);
+}
+.container > div:nth-child(50):hover ~ .layer-1 {
+  transform: translate(-20%, -48.7%);
+}
+.container > div:nth-child(50):hover ~ .layer-2 {
+  transform: translate(-22%, -19.6%);
+}
+.container > div:nth-child(51):hover ~ .layer-1 {
+  transform: translate(-0.8%, -51.3%);
+}
+.container > div:nth-child(51):hover ~ .layer-2 {
+  transform: translate(-18.16%, -20.4%);
+}
+.container > div:nth-child(52):hover ~ .layer-1 {
+  transform: translate(-1.6%, -51.3%);
+}
+.container > div:nth-child(52):hover ~ .layer-2 {
+  transform: translate(-18.32%, -20.4%);
+}
+.container > div:nth-child(53):hover ~ .layer-1 {
+  transform: translate(-2.4%, -51.3%);
+}
+.container > div:nth-child(53):hover ~ .layer-2 {
+  transform: translate(-18.48%, -20.4%);
+}
+.container > div:nth-child(54):hover ~ .layer-1 {
+  transform: translate(-3.2%, -51.3%);
+}
+.container > div:nth-child(54):hover ~ .layer-2 {
+  transform: translate(-18.64%, -20.4%);
+}
+.container > div:nth-child(55):hover ~ .layer-1 {
+  transform: translate(-4%, -51.3%);
+}
+.container > div:nth-child(55):hover ~ .layer-2 {
+  transform: translate(-18.8%, -20.4%);
+}
+.container > div:nth-child(56):hover ~ .layer-1 {
+  transform: translate(-4.8%, -51.3%);
+}
+.container > div:nth-child(56):hover ~ .layer-2 {
+  transform: translate(-18.96%, -20.4%);
+}
+.container > div:nth-child(57):hover ~ .layer-1 {
+  transform: translate(-5.6%, -51.3%);
+}
+.container > div:nth-child(57):hover ~ .layer-2 {
+  transform: translate(-19.12%, -20.4%);
+}
+.container > div:nth-child(58):hover ~ .layer-1 {
+  transform: translate(-6.4%, -51.3%);
+}
+.container > div:nth-child(58):hover ~ .layer-2 {
+  transform: translate(-19.28%, -20.4%);
+}
+.container > div:nth-child(59):hover ~ .layer-1 {
+  transform: translate(-7.2%, -51.3%);
+}
+.container > div:nth-child(59):hover ~ .layer-2 {
+  transform: translate(-19.44%, -20.4%);
+}
+.container > div:nth-child(60):hover ~ .layer-1 {
+  transform: translate(-8%, -51.3%);
+}
+.container > div:nth-child(60):hover ~ .layer-2 {
+  transform: translate(-19.6%, -20.4%);
+}
+.container > div:nth-child(61):hover ~ .layer-1 {
+  transform: translate(-8.8%, -51.3%);
+}
+.container > div:nth-child(61):hover ~ .layer-2 {
+  transform: translate(-19.76%, -20.4%);
+}
+.container > div:nth-child(62):hover ~ .layer-1 {
+  transform: translate(-9.6%, -51.3%);
+}
+.container > div:nth-child(62):hover ~ .layer-2 {
+  transform: translate(-19.92%, -20.4%);
+}
+.container > div:nth-child(63):hover ~ .layer-1 {
+  transform: translate(-10.4%, -51.3%);
+}
+.container > div:nth-child(63):hover ~ .layer-2 {
+  transform: translate(-20.08%, -20.4%);
+}
+.container > div:nth-child(64):hover ~ .layer-1 {
+  transform: translate(-11.2%, -51.3%);
+}
+.container > div:nth-child(64):hover ~ .layer-2 {
+  transform: translate(-20.24%, -20.4%);
+}
+.container > div:nth-child(65):hover ~ .layer-1 {
+  transform: translate(-12%, -51.3%);
+}
+.container > div:nth-child(65):hover ~ .layer-2 {
+  transform: translate(-20.4%, -20.4%);
+}
+.container > div:nth-child(66):hover ~ .layer-1 {
+  transform: translate(-12.8%, -51.3%);
+}
+.container > div:nth-child(66):hover ~ .layer-2 {
+  transform: translate(-20.56%, -20.4%);
+}
+.container > div:nth-child(67):hover ~ .layer-1 {
+  transform: translate(-13.6%, -51.3%);
+}
+.container > div:nth-child(67):hover ~ .layer-2 {
+  transform: translate(-20.72%, -20.4%);
+}
+.container > div:nth-child(68):hover ~ .layer-1 {
+  transform: translate(-14.4%, -51.3%);
+}
+.container > div:nth-child(68):hover ~ .layer-2 {
+  transform: translate(-20.88%, -20.4%);
+}
+.container > div:nth-child(69):hover ~ .layer-1 {
+  transform: translate(-15.2%, -51.3%);
+}
+.container > div:nth-child(69):hover ~ .layer-2 {
+  transform: translate(-21.04%, -20.4%);
+}
+.container > div:nth-child(70):hover ~ .layer-1 {
+  transform: translate(-16%, -51.3%);
+}
+.container > div:nth-child(70):hover ~ .layer-2 {
+  transform: translate(-21.2%, -20.4%);
+}
+.container > div:nth-child(71):hover ~ .layer-1 {
+  transform: translate(-16.8%, -51.3%);
+}
+.container > div:nth-child(71):hover ~ .layer-2 {
+  transform: translate(-21.36%, -20.4%);
+}
+.container > div:nth-child(72):hover ~ .layer-1 {
+  transform: translate(-17.6%, -51.3%);
+}
+.container > div:nth-child(72):hover ~ .layer-2 {
+  transform: translate(-21.52%, -20.4%);
+}
+.container > div:nth-child(73):hover ~ .layer-1 {
+  transform: translate(-18.4%, -51.3%);
+}
+.container > div:nth-child(73):hover ~ .layer-2 {
+  transform: translate(-21.68%, -20.4%);
+}
+.container > div:nth-child(74):hover ~ .layer-1 {
+  transform: translate(-19.2%, -51.3%);
+}
+.container > div:nth-child(74):hover ~ .layer-2 {
+  transform: translate(-21.84%, -20.4%);
+}
+.container > div:nth-child(75):hover ~ .layer-1 {
+  transform: translate(-20%, -51.3%);
+}
+.container > div:nth-child(75):hover ~ .layer-2 {
+  transform: translate(-22%, -20.4%);
+}
+.container > div:nth-child(76):hover ~ .layer-1 {
+  transform: translate(-0.8%, -53.9%);
+}
+.container > div:nth-child(76):hover ~ .layer-2 {
+  transform: translate(-18.16%, -21.2%);
+}
+.container > div:nth-child(77):hover ~ .layer-1 {
+  transform: translate(-1.6%, -53.9%);
+}
+.container > div:nth-child(77):hover ~ .layer-2 {
+  transform: translate(-18.32%, -21.2%);
+}
+.container > div:nth-child(78):hover ~ .layer-1 {
+  transform: translate(-2.4%, -53.9%);
+}
+.container > div:nth-child(78):hover ~ .layer-2 {
+  transform: translate(-18.48%, -21.2%);
+}
+.container > div:nth-child(79):hover ~ .layer-1 {
+  transform: translate(-3.2%, -53.9%);
+}
+.container > div:nth-child(79):hover ~ .layer-2 {
+  transform: translate(-18.64%, -21.2%);
+}
+.container > div:nth-child(80):hover ~ .layer-1 {
+  transform: translate(-4%, -53.9%);
+}
+.container > div:nth-child(80):hover ~ .layer-2 {
+  transform: translate(-18.8%, -21.2%);
+}
+.container > div:nth-child(81):hover ~ .layer-1 {
+  transform: translate(-4.8%, -53.9%);
+}
+.container > div:nth-child(81):hover ~ .layer-2 {
+  transform: translate(-18.96%, -21.2%);
+}
+.container > div:nth-child(82):hover ~ .layer-1 {
+  transform: translate(-5.6%, -53.9%);
+}
+.container > div:nth-child(82):hover ~ .layer-2 {
+  transform: translate(-19.12%, -21.2%);
+}
+.container > div:nth-child(83):hover ~ .layer-1 {
+  transform: translate(-6.4%, -53.9%);
+}
+.container > div:nth-child(83):hover ~ .layer-2 {
+  transform: translate(-19.28%, -21.2%);
+}
+.container > div:nth-child(84):hover ~ .layer-1 {
+  transform: translate(-7.2%, -53.9%);
+}
+.container > div:nth-child(84):hover ~ .layer-2 {
+  transform: translate(-19.44%, -21.2%);
+}
+.container > div:nth-child(85):hover ~ .layer-1 {
+  transform: translate(-8%, -53.9%);
+}
+.container > div:nth-child(85):hover ~ .layer-2 {
+  transform: translate(-19.6%, -21.2%);
+}
+.container > div:nth-child(86):hover ~ .layer-1 {
+  transform: translate(-8.8%, -53.9%);
+}
+.container > div:nth-child(86):hover ~ .layer-2 {
+  transform: translate(-19.76%, -21.2%);
+}
+.container > div:nth-child(87):hover ~ .layer-1 {
+  transform: translate(-9.6%, -53.9%);
+}
+.container > div:nth-child(87):hover ~ .layer-2 {
+  transform: translate(-19.92%, -21.2%);
+}
+.container > div:nth-child(88):hover ~ .layer-1 {
+  transform: translate(-10.4%, -53.9%);
+}
+.container > div:nth-child(88):hover ~ .layer-2 {
+  transform: translate(-20.08%, -21.2%);
+}
+.container > div:nth-child(89):hover ~ .layer-1 {
+  transform: translate(-11.2%, -53.9%);
+}
+.container > div:nth-child(89):hover ~ .layer-2 {
+  transform: translate(-20.24%, -21.2%);
+}
+.container > div:nth-child(90):hover ~ .layer-1 {
+  transform: translate(-12%, -53.9%);
+}
+.container > div:nth-child(90):hover ~ .layer-2 {
+  transform: translate(-20.4%, -21.2%);
+}
+.container > div:nth-child(91):hover ~ .layer-1 {
+  transform: translate(-12.8%, -53.9%);
+}
+.container > div:nth-child(91):hover ~ .layer-2 {
+  transform: translate(-20.56%, -21.2%);
+}
+.container > div:nth-child(92):hover ~ .layer-1 {
+  transform: translate(-13.6%, -53.9%);
+}
+.container > div:nth-child(92):hover ~ .layer-2 {
+  transform: translate(-20.72%, -21.2%);
+}
+.container > div:nth-child(93):hover ~ .layer-1 {
+  transform: translate(-14.4%, -53.9%);
+}
+.container > div:nth-child(93):hover ~ .layer-2 {
+  transform: translate(-20.88%, -21.2%);
+}
+.container > div:nth-child(94):hover ~ .layer-1 {
+  transform: translate(-15.2%, -53.9%);
+}
+.container > div:nth-child(94):hover ~ .layer-2 {
+  transform: translate(-21.04%, -21.2%);
+}
+.container > div:nth-child(95):hover ~ .layer-1 {
+  transform: translate(-16%, -53.9%);
+}
+.container > div:nth-child(95):hover ~ .layer-2 {
+  transform: translate(-21.2%, -21.2%);
+}
+.container > div:nth-child(96):hover ~ .layer-1 {
+  transform: translate(-16.8%, -53.9%);
+}
+.container > div:nth-child(96):hover ~ .layer-2 {
+  transform: translate(-21.36%, -21.2%);
+}
+.container > div:nth-child(97):hover ~ .layer-1 {
+  transform: translate(-17.6%, -53.9%);
+}
+.container > div:nth-child(97):hover ~ .layer-2 {
+  transform: translate(-21.52%, -21.2%);
+}
+.container > div:nth-child(98):hover ~ .layer-1 {
+  transform: translate(-18.4%, -53.9%);
+}
+.container > div:nth-child(98):hover ~ .layer-2 {
+  transform: translate(-21.68%, -21.2%);
+}
+.container > div:nth-child(99):hover ~ .layer-1 {
+  transform: translate(-19.2%, -53.9%);
+}
+.container > div:nth-child(99):hover ~ .layer-2 {
+  transform: translate(-21.84%, -21.2%);
+}
+.container > div:nth-child(100):hover ~ .layer-1 {
+  transform: translate(-20%, -53.9%);
+}
+.container > div:nth-child(100):hover ~ .layer-2 {
+  transform: translate(-22%, -21.2%);
+}
+.container > div:nth-child(101):hover ~ .layer-1 {
+  transform: translate(-0.8%, -56.5%);
+}
+.container > div:nth-child(101):hover ~ .layer-2 {
+  transform: translate(-18.16%, -22%);
+}
+.container > div:nth-child(102):hover ~ .layer-1 {
+  transform: translate(-1.6%, -56.5%);
+}
+.container > div:nth-child(102):hover ~ .layer-2 {
+  transform: translate(-18.32%, -22%);
+}
+.container > div:nth-child(103):hover ~ .layer-1 {
+  transform: translate(-2.4%, -56.5%);
+}
+.container > div:nth-child(103):hover ~ .layer-2 {
+  transform: translate(-18.48%, -22%);
+}
+.container > div:nth-child(104):hover ~ .layer-1 {
+  transform: translate(-3.2%, -56.5%);
+}
+.container > div:nth-child(104):hover ~ .layer-2 {
+  transform: translate(-18.64%, -22%);
+}
+.container > div:nth-child(105):hover ~ .layer-1 {
+  transform: translate(-4%, -56.5%);
+}
+.container > div:nth-child(105):hover ~ .layer-2 {
+  transform: translate(-18.8%, -22%);
+}
+.container > div:nth-child(106):hover ~ .layer-1 {
+  transform: translate(-4.8%, -56.5%);
+}
+.container > div:nth-child(106):hover ~ .layer-2 {
+  transform: translate(-18.96%, -22%);
+}
+.container > div:nth-child(107):hover ~ .layer-1 {
+  transform: translate(-5.6%, -56.5%);
+}
+.container > div:nth-child(107):hover ~ .layer-2 {
+  transform: translate(-19.12%, -22%);
+}
+.container > div:nth-child(108):hover ~ .layer-1 {
+  transform: translate(-6.4%, -56.5%);
+}
+.container > div:nth-child(108):hover ~ .layer-2 {
+  transform: translate(-19.28%, -22%);
+}
+.container > div:nth-child(109):hover ~ .layer-1 {
+  transform: translate(-7.2%, -56.5%);
+}
+.container > div:nth-child(109):hover ~ .layer-2 {
+  transform: translate(-19.44%, -22%);
+}
+.container > div:nth-child(110):hover ~ .layer-1 {
+  transform: translate(-8%, -56.5%);
+}
+.container > div:nth-child(110):hover ~ .layer-2 {
+  transform: translate(-19.6%, -22%);
+}
+.container > div:nth-child(111):hover ~ .layer-1 {
+  transform: translate(-8.8%, -56.5%);
+}
+.container > div:nth-child(111):hover ~ .layer-2 {
+  transform: translate(-19.76%, -22%);
+}
+.container > div:nth-child(112):hover ~ .layer-1 {
+  transform: translate(-9.6%, -56.5%);
+}
+.container > div:nth-child(112):hover ~ .layer-2 {
+  transform: translate(-19.92%, -22%);
+}
+.container > div:nth-child(113):hover ~ .layer-1 {
+  transform: translate(-10.4%, -56.5%);
+}
+.container > div:nth-child(113):hover ~ .layer-2 {
+  transform: translate(-20.08%, -22%);
+}
+.container > div:nth-child(114):hover ~ .layer-1 {
+  transform: translate(-11.2%, -56.5%);
+}
+.container > div:nth-child(114):hover ~ .layer-2 {
+  transform: translate(-20.24%, -22%);
+}
+.container > div:nth-child(115):hover ~ .layer-1 {
+  transform: translate(-12%, -56.5%);
+}
+.container > div:nth-child(115):hover ~ .layer-2 {
+  transform: translate(-20.4%, -22%);
+}
+.container > div:nth-child(116):hover ~ .layer-1 {
+  transform: translate(-12.8%, -56.5%);
+}
+.container > div:nth-child(116):hover ~ .layer-2 {
+  transform: translate(-20.56%, -22%);
+}
+.container > div:nth-child(117):hover ~ .layer-1 {
+  transform: translate(-13.6%, -56.5%);
+}
+.container > div:nth-child(117):hover ~ .layer-2 {
+  transform: translate(-20.72%, -22%);
+}
+.container > div:nth-child(118):hover ~ .layer-1 {
+  transform: translate(-14.4%, -56.5%);
+}
+.container > div:nth-child(118):hover ~ .layer-2 {
+  transform: translate(-20.88%, -22%);
+}
+.container > div:nth-child(119):hover ~ .layer-1 {
+  transform: translate(-15.2%, -56.5%);
+}
+.container > div:nth-child(119):hover ~ .layer-2 {
+  transform: translate(-21.04%, -22%);
+}
+.container > div:nth-child(120):hover ~ .layer-1 {
+  transform: translate(-16%, -56.5%);
+}
+.container > div:nth-child(120):hover ~ .layer-2 {
+  transform: translate(-21.2%, -22%);
+}
+.container > div:nth-child(121):hover ~ .layer-1 {
+  transform: translate(-16.8%, -56.5%);
+}
+.container > div:nth-child(121):hover ~ .layer-2 {
+  transform: translate(-21.36%, -22%);
+}
+.container > div:nth-child(122):hover ~ .layer-1 {
+  transform: translate(-17.6%, -56.5%);
+}
+.container > div:nth-child(122):hover ~ .layer-2 {
+  transform: translate(-21.52%, -22%);
+}
+.container > div:nth-child(123):hover ~ .layer-1 {
+  transform: translate(-18.4%, -56.5%);
+}
+.container > div:nth-child(123):hover ~ .layer-2 {
+  transform: translate(-21.68%, -22%);
+}
+.container > div:nth-child(124):hover ~ .layer-1 {
+  transform: translate(-19.2%, -56.5%);
+}
+.container > div:nth-child(124):hover ~ .layer-2 {
+  transform: translate(-21.84%, -22%);
+}
+.container > div:nth-child(125):hover ~ .layer-1 {
+  transform: translate(-20%, -56.5%);
+}
+.container > div:nth-child(125):hover ~ .layer-2 {
+  transform: translate(-22%, -22%);
+}
+
+/* end .container */
+@keyframes move-clouds {
+  0% {
+    transform: translate(-10%, 20%);
+  }
+  50% {
+    transform: translate(0%, 20%);
+  }
+  100% {
+    transform: translate(-10%, 20%);
+  }
+}
+/*end keyframes*/
+.copyright {
+  text-align: center;
+}
+.copyright, .copyright a {
+  font-size: 1rem;
+  color: #ddd;
+}
+.copyright a:link {
+  margin: 0 0.5rem;
+  color: #ddd;
+}
+.copyright a:hover {
+  color: #eee;
+}

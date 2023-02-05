@@ -1,25 +1,11 @@
 @use "sass:string";
 @use "sass:map";
 
+
 $max_cols: 25;
 $max_rows: 5;
 
-$layer_1_config: (
-    "max_x_offset": 5,
-    "max_y_offset": 8,
-    "min_x_offset": -5,
-    "min_y_offset": -1,
-    "initial_x_offset": -5,
-    "initial_y_offset": -15
-);
-$layer_2_config: (
-    "max_x_offset": 0,
-    "max_y_offset": 4,
-    "min_x_offset": -4,
-    "min_y_offset": -1,
-    "initial_x_offset": -5,
-    "initial_y_offset": -10
-);
+
 
 
 @mixin translate($r, $c, $map) {
@@ -30,8 +16,6 @@ $layer_2_config: (
     $y: ( $max_rows - $r - ($max_rows / 2) ) * $translate_steps_y + map.get($map, "initial_y_offset");
     transform: string.unquote('translate(' + $x+ '%, ' + $y + '%)');
 }
-
-
 
 
 
@@ -46,11 +30,36 @@ body {
     min-height: 100dvh;
 }
 .container {
+    $width: var(--width);
+    $height: var(--height);
+    $bg_zoom: var(--zoom);
+
+    /* middle layer */
+    $layer_1_config: (
+        "max_x_offset": 10,
+        "max_y_offset": 8,
+        "min_x_offset": -10,
+        "min_y_offset": -5,
+        "initial_x_offset": -10,
+        "initial_y_offset": -50
+    );
+    /* deepest layer */
+    $layer_2_config: (
+        "max_x_offset": 2,
+        "max_y_offset": 2,
+        "min_x_offset": -2,
+        "min_y_offset": -2,
+        "initial_x_offset": -20,
+        "initial_y_offset": -20
+    );
+
     position:relative;
     margin: 10rem 0;
-    min-height: 25rem;
+/*    min-height: 25rem; */
+    aspect-ratio: $width / $height;
     
     overflow: hidden;
+    box-shadow: 0 1rem 6rem 0 rgba(0,0,0,.6);
 
     $rows: 0;
     $cols: 0;
@@ -77,15 +86,16 @@ body {
         transition: transform 2s ease-out;
 
         > img {
-            width: 120%;
+            width: string.unquote($bg_zoom + '%');
             height:auto;
         }
     }
     & > .layer-0 {
-        background: linear-gradient(135deg, rgba(30,10,40, .8),rgba(50,50,50, .6) );
-
+        background-image: linear-gradient(100deg, rgba(30,10,40, .8),rgba(50,50,50, .6) );
+        background-size: string.unquote($bg_zoom + '%');
     }
     &> .layer-1 {
+        opacity: .8;
         transform: string.unquote('translate(' + map.get($layer_1_config,"initial_x_offset") + '%, ' + map.get($layer_1_config, "initial_y_offset") + '%)');
     }
     &> .layer-2 {
@@ -118,7 +128,20 @@ body {
             min-height: 15rem;
         }
     }
-}    
+
+
+    @for $r from 1 through $max_rows {
+        @for $c from 1 through $max_cols {
+            
+            & > div:nth-child(#{$r*$max_cols -$max_cols + $c}):hover ~ .layer-1  {
+                @include translate($r, $c, $layer_1_config);
+            }
+            & > div:nth-child(#{$r*$max_cols -$max_cols + $c}):hover ~ .layer-2  {  
+                @include translate($r, $c, $layer_2_config);
+            }
+        }
+    }
+}  /* end .container */
 
 @keyframes move-clouds {
     0% {
@@ -130,16 +153,21 @@ body {
     100% {
         transform: translate(-10%, 20%);
     }
-}
+} /*end keyframes*/
 
-@for $r from 1 through $max_rows {
-    @for $c from 1 through $max_cols {
-        
-        .container > div:nth-child(#{$r*$max_cols -$max_cols + $c}):hover ~ .layer-1  {
-            @include translate($r, $c, $layer_1_config);
-        }
-        .container > div:nth-child(#{$r*$max_cols -$max_cols + $c}):hover ~ .layer-2  {  
-            @include translate($r, $c, $layer_2_config);
-        }
+
+.copyright {
+    text-align: center;
+    &, a {
+        font-size:1rem; 
+        color:#ddd;
     }
+    a:link {
+        margin: 0 0.5rem;
+        color: #ddd;
+    }
+    a:hover {
+        color: #eee;
+    }
+
 }
